@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Prediction</title>
+</head>
+<body>
+    <h1>Test Prediction API</h1>
+    <form id="testForm">
+        <input type="file" id="fileInput" accept="image/*">
+        <button type="submit">Test Predict</button>
+    </form>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const fileInput = document.getElementById('fileInput');
+            const result = document.getElementById('result');
+            
+            if (!fileInput.files[0]) {
+                result.innerHTML = 'Please select a file';
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('image', fileInput.files[0]);
+            
+            try {
+                result.innerHTML = 'Sending request...';
+                const response = await fetch('/test-predict', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                result.innerHTML = `Status: ${response.status}<br>`;
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    result.innerHTML += `Success: ${JSON.stringify(data, null, 2)}`;
+                } else {
+                    const errorData = await response.json();
+                    result.innerHTML += `Error: ${JSON.stringify(errorData, null, 2)}`;
+                }
+            } catch (error) {
+                result.innerHTML = `Network Error: ${error.message}`;
+            }
+        });
+    </script>
+</body>
+</html>

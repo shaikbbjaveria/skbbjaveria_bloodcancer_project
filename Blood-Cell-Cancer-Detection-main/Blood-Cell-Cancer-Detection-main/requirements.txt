@@ -1,0 +1,12 @@
+flask
+pillow
+numpy
+flask-sqlalchemy
+flask-login
+flask-wtf
+email_validator
+werkzeug
+matplotlib
+scikit-learn
+flask-cors
+gunicorn

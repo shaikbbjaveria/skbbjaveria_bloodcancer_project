@@ -1,0 +1,29 @@
+# Core Flask dependencies
+flask>=2.2.0,<2.3.0
+werkzeug>=2.2.0,<2.3.0
+
+# Database and authentication
+flask-sqlalchemy>=3.0.0,<3.1.0
+flask-login>=0.6.0,<0.7.0
+flask-wtf>=1.0.0,<1.1.0
+email_validator>=2.0.0,<3.0.0
+dnspython>=2.0.0,<3.0.0
+
+# Image processing and ML
+pillow>=9.0.0,<10.0.0
+numpy>=1.21.0,<1.22.0
+
+# TensorFlow (CPU-only for Render compatibility)
+tensorflow>=2.10.0,<2.11.0
+
+# Data visualization
+matplotlib>=3.6.0,<3.7.0
+
+# Machine learning utilities
+scikit-learn>=1.1.0,<1.2.0
+
+# CORS support
+flask-cors>=3.0.0,<4.0.0
+
+# Production server
+gunicorn>=20.0.0,<21.0.0
